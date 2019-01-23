@@ -1,1 +1,1 @@
-see https://dummy-app-59bf5.firebaseapp.com
+live https://dummy-app-59bf5.firebaseapp.com

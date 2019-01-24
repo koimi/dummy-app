@@ -11,13 +11,14 @@ import { updateProject } from '../../store/actions/projectActions'
 class ProjectDetails extends Component {
     constructor(props) {
         super(props);
-        
+
        if(props.project) {
         this.state = {
             ...this.state,
             title: props.project.title,
             content: props.project.content,
             firstName : props.project.firstName,
+            lastName: props.project.lastName,
             createdAt: props.project.createdAt,
           };}
       }
@@ -36,11 +37,11 @@ class ProjectDetails extends Component {
 
     render() {
         const { project, auth } = this.props
-        
+        console.log(project)
         if (!auth.uid || !this.state) return <Redirect to= '/signin' />
-        const updatedByLabels = project && project.updatedBy ? <div>
-        <p><Label bsStyle="default">Last Updated by</Label> { project.updatedBy }</p>
-        <p><Label bsStyle="default">Last Updated by</Label> { moment(project.updatedAt.toDate()).calendar() }</p></div> : null;
+        const updatedByLabels = project && project.updatedAt ? <div>
+        <p><Label bsStyle="default">Last Updated by</Label> { project.updatedByFirstName } { project.updatedByLastName }</p>
+        <p><Label bsStyle="default">Last Updated at</Label> { moment(project.updatedAt.toDate()).calendar() }</p></div> : null;
     
         if (project) {
             return (

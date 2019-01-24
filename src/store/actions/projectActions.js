@@ -28,7 +28,8 @@ export const updateProject = (project, key) => {
         
         firestore.collection('projects').doc(key).set({
             ...project,
-            updatedBy: profile.firstName,
+            updatedByFirstName: profile.firstName,
+            updatedByLastName: profile.lastName,
             userID: userID,
             updatedAt: new Date()
         }).then(() => {

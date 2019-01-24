@@ -32,8 +32,6 @@ const ProjectList = (props) => {
             else return <Col smOffset={5} sm={8}><p>Loading...</p></Col>
         }
 
-let q = 'title'
-
 const mapStateToProps = (state) => {
     
     return {
@@ -46,7 +44,7 @@ const mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'projects', orderBy: [q, 'asc'] }
+        { collection: 'projects', orderBy: ['title', 'asc'] }
 
     ])
 )(ProjectList)
